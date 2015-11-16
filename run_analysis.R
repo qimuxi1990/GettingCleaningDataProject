@@ -44,4 +44,3 @@ remove(dataset_1, varNames, dataMelt)
 
 # Save Second Dataset to file
 write.table(dataset_2, "data.txt")
-dataload <- read.table("data.txt")
