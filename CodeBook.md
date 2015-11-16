@@ -28,7 +28,7 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 ## Creating the tidy datafile
 
 ### Guide to create the tidy data file
- - 0. Load data from X_*.txt, y_*.tat, subject_*.txt, features.txt and activity_label.txt using read.table()
+ - 0. Load data from X\_*.txt, y\_*.tat, subject\_*.txt, features.txt and activity\_label.txt using read.table()
  - 1. Merges the training and the test sets to create one data set, using rbind() and cbind()
  - 2. Extracts only the measurements on the mean and standard deviation for each measurement, by selecting features with mean() or std() in their names
  - 3. Uses descriptive activity names to name the activities in the data set, using data loaded from activity_label.txt
