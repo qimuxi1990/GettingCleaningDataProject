@@ -1,6 +1,7 @@
 # Libraries
 library(data.table)
 library(plyr)
+library(reshape2)
 
 # Load Data
 features <- read.table("./UCI HAR Dataset/features.txt")
@@ -27,12 +28,20 @@ remove(X)
 
 # Descriptive Activity Names
 y <- join(y, activity_labels, by = 'V1')
+remove(activity_labels)
 
 # Discriptive variable names
-colnames(subject) <- c("subject_label")
-colnames(X_selected) <- features[features_selected, 2]
-colnames(y) <- c("activity_label", "activity_name")
-dataset_1 <- cbind(X_selected, y$activity_name, subject)
-remove(activity_labels, features, features_selected, X_selected, y, subject)
+dataset_1 <- cbind(X_selected, y$V2, subject)
+varNames <- c(as.character(features[features_selected, 2]), "activity_name", "subject_label")
+colnames(dataset_1) <- varNames
+remove(features, features_selected, X_selected, y, subject)
 
-# Second Independent Tidy Data
+# Second Independent Tidy Dataset
+## calculate average(measures) for each unique pair of (activity, subject)
+dataMelt <- melt(dataset_1, id=c("activity_name", "subject_label"),measure.vars = varNames[c(1:79)])
+dataset_2 <- dcast(dataMelt, activity_name+subject_label ~ variable, mean)
+remove(dataset_1, varNames, dataMelt)
+
+# Save Second Dataset to file
+write.table(dataset_2, "data.txt")
+dataload <- read.table("data.txt")
