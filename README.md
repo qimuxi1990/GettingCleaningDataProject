@@ -2,8 +2,7 @@
 Coursera Getting &amp; Cleaning Data Project 2015Fall John Hopkins
 
 ## Data
-From UCI Machine Learning Repository<br>
-https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+From [UCI Machine Learning Repository](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)
 
 ## Task Details
 You should create one R script called run_analysis.R that does the following. 

@@ -22,7 +22,8 @@ remove(X_test, X_train, y_test, y_train, subject_test, subject_train)
 # Extract
 ## mean(): Mean value
 ## std(): Standard deviation
-features_selected <- grep("*mean()|std()*", features$V2)
+features_selected <- grep("*mean\\(\\)|std\\(\\)*", features$V2)
+numSelected <- length(features_selected)
 X_selected <- X[,features_selected]
 remove(X)
 
@@ -38,9 +39,9 @@ remove(features, features_selected, X_selected, y, subject)
 
 # Second Independent Tidy Dataset
 ## calculate average(measures) for each unique pair of (activity, subject)
-dataMelt <- melt(dataset_1, id=c("activity_name", "subject_label"),measure.vars = varNames[c(1:79)])
+dataMelt <- melt(dataset_1, id=c("activity_name", "subject_label"),measure.vars = varNames[c(1:numSelected)])
 dataset_2 <- dcast(dataMelt, activity_name+subject_label ~ variable, mean)
-remove(dataset_1, varNames, dataMelt)
+remove(dataset_1, varNames, dataMelt, numSelected)
 
 # Save Second Dataset to file
 write.table(dataset_2, "data.txt")
