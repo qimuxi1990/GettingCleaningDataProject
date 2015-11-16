@@ -44,4 +44,4 @@ dataset_2 <- dcast(dataMelt, activity_name+subject_label ~ variable, mean)
 remove(dataset_1, varNames, dataMelt, numSelected)
 
 # Save Second Dataset to file
-write.table(dataset_2, "data.txt")
+write.table(dataset_2, "data.txt", row.names = FALSE)

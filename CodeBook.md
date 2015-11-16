@@ -39,7 +39,7 @@ Raw data is collected from [UCI Machine Learning Repository](https://d396qusza40
 Cleaning the raw data to get a tidy data set with the average of each mean or std measure for each activity and each subject. [link to the readme document that describes the code in greater detail](/README.md)
 
 ## Description of the variables in the tiny_data.txt file
-Data can be loaded in R using <code>dataset <\- read.table("data.txt")</code><br>
+Data can be loaded in R using <code>dataset <\- read.table("data.txt", header = TRUE)</code><br>
 General description of the file including:
  - Dimensions of the dataset: 180 obs. of 68 variables. <code>dim(dataset)</code>
  - Summary of the data: <code>summary(dataset)</code>
